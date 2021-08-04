@@ -2,14 +2,18 @@ import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import Formularios from './components/Formularios';
-import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem,NavbarText} from 'reactstrap';
+import Encuesta from './Encuesta';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   render(){
   return (
-    <header className= 'AppHeader'>
-      <Formularios></Formularios>
-    </header>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Formularios} />
+        <Route path='/Encuesta' component={Encuesta} />
+      </Switch>
+    </Router>
   );
   }
 }

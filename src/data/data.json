@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"titulo": "Mi primera encuesta",
+		"descripcion": "Texto de ejemplo."
+	},
+	{
+		"id": 2,
+		"titulo": "Mi segunda encuesta",
+		"descripcion": "Texto de ejemplo."
+	},
+	{
+		"id": 3,
+		"titulo": "Mi tercera encuesta",
+		"descripcion": "Texto de ejemplo."
+	},
+	{
+		"id": 4,
+		"titulo": "Mi cuarta encuesta",
+		"descripcion": "Texto de ejemplo."
+	},
+	{
+		"id": 5,
+		"titulo": "Mi quinta encuesta",
+		"descripcion": "Texto de ejemplo."
+	}
+]
