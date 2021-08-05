@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, Row ,Col,  Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import './Formularios.css';
 
 export default class Formularios extends React.Component {
@@ -25,7 +24,7 @@ export default class Formularios extends React.Component {
   onClick(e){
     console.log(this.state);
     alert("La encuesta se ha enviado");
-    window.location.href = window.location.href;
+    //window.location.href = window.location.href;
   }
 
   render(){
