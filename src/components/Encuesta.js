@@ -1,4 +1,5 @@
 import {Card, Container, Row, Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const getEncuesta = (data) => {
   if (data === undefined) {
@@ -17,7 +18,12 @@ function Encuesta() {
         <Card.Body>
           <Card.Title>{arr.titulo}</Card.Title>
           <Card.Text>{arr.descripcion}</Card.Text>
-          <Card.Link href="#">Ingresar</Card.Link>
+          <Link
+            activeClassName="active"
+            className="nav-item nav-link" 
+            to={`./encuestas/${ arr.id }`} >
+            Ingresar...     
+          </Link>
         </Card.Body>
       </Card>
       <div>&nbsp;</div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import {Card, Container, Row, Col} from 'react-bootstrap'
 import '../Formulario.css';
 
 export default class Formularios extends React.Component {
