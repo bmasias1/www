@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import {Card, Container, Row, Col} from 'react-bootstrap'
+import './EncuestaScreen.css';
+
 
 export const EncuestaScreen = ({ history }) => {
 
@@ -41,12 +43,12 @@ export const EncuestaScreen = ({ history }) => {
     }
 
     return (
-        <div className="row mt-5">
+        <div className="fondo">
             <Container>
                 <div>&nbsp;</div>
                 <Row>
                     <Col>
-                        <Card key = {id} style={{"backgroundColor": "#EDF2EF"}}>
+                        <Card key = {id}>
                             <Card.Body>
                             <Card.Title>{titulo}</Card.Title>
                             <Card.Text>{descripcion}</Card.Text>
