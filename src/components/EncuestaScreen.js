@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import {Card, Container, Row, Col} from 'react-bootstrap'
-import './EncuestaScreen.css';
+import '../EncuestaScreen.css';
 
 
 export const EncuestaScreen = ({ history }) => {
