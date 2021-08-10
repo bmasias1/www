@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../Formulario.css';
+import { Form, Card, Container, Row, Col, Button } from 'react-bootstrap'
 
 export default class Formularios extends React.Component {
   constructor(props){
@@ -20,35 +19,59 @@ export default class Formularios extends React.Component {
       [name]: value,
     });
   }
-  onClick(e) {
-    let arrJson = JSON.parse(localStorage.encuestas);
-    let newId = parseInt(arrJson.length) + 1;
-    let obj = {
-      "id": newId,
-      "titulo": this.state.nombre,
-      "descripcion": this.state.descripcion
+
+  async onClick(e) {
+    // Falta arreglar lo siguiente...
+    /*
+    const data = {
+      Titulo: this.state.nombre,
+      Descripcion: this.state.descripcion
     }
-    arrJson.push(obj);
-    localStorage.setItem("encuestas", JSON.stringify(arrJson));
-    alert("La encuesta se ha enviado");
+    const config = {
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    };
+    const response = await fetch("/prod/encuesta/", config);
+    const json = await response.json();
+    console.log(JSON.stringify(data));
+    console.log(json);
+    */
+    console.log("ok");
   }
 
   render(){
     return(
-          <div className='Fondo'>
-            <Form className='Formulario'>
-              <h3>Encuesta</h3>
-              <FormGroup className= 'TextoFormularios'>
-              <Label for="nombre">Nombre</Label>
-              <Input type="nombre" name="nombre" id="nombre" value= {this.state.nombre} onChange={this.onChange} className= 'Bloque'/>
-              </FormGroup>
-              <FormGroup className= 'TextoFormularios'>
-              <Label for="descripcion">Descripcion</Label>
-              <Input type= "textarea" name= "descripcion" value= {this.state.descripcion} onChange={this.onChange} className= 'BloqueTexto'/>
-              </FormGroup>
-              <Button className="Boton" onClick= {this.onClick}>Enviar</Button>
-            </Form>
-          </div>
+      <Container>
+        <div>&nbsp;</div>
+        <Row>
+          <Col>
+            <Card bg={"Light"}>
+              <Card.Header>Crear encuesta</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                  <Form>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Título</Form.Label>
+                      <Form.Control name="nombre" value={this.state.nombre} onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                      <Form.Label>Descripción</Form.Label>
+                      <Form.Control as="textarea" rows={4} name="descripcion" value={this.state.descripcion} onChange={this.onChange} />
+                    </Form.Group>
+                    <Form.Group className="text-center">
+                      <Button variant="primary" onClick= {this.onClick}>Enviar</Button>
+                    </Form.Group>
+                  </Form>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

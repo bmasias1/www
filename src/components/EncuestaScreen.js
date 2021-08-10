@@ -12,11 +12,10 @@ function EncuestaScreen () {
         const response = await fetch(url);
         const responseJSON = await response.json();
         setEncuesta(responseJSON.Item);
-        console.log(responseJSON.Item)
     };
     useEffect(() => {
         fetchApi()
-    }, []);
+    });
     const history = useHistory();
     return (
         <Container>
