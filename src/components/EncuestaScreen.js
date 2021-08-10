@@ -1,72 +1,44 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
-import {Card, Container, Row, Col} from 'react-bootstrap'
-import '../EncuestaScreen.css';
+import { useHistory } from "react-router-dom";
+import { Card, Container, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-
-export const EncuestaScreen = ({ history }) => {
-
+function EncuestaScreen () {
     const { encuestaId } = useParams();
-
-    const getEncuesta = (data) => {
-        if (data === undefined) {
-          return []
-        }
-        return JSON.parse(data);
-      };
-      
-    const arr = getEncuesta(localStorage.encuestas);
-
-    const getEncuestaById = ( id ) => {
-        return arr.find( encuesta => encuesta.id === id );
-    }
-
-
-    const encuesta = getEncuestaById( parseInt(encuestaId) )
-
- 
-    const {
-        id,
-        titulo,
-        descripcion,
-    } = encuesta; 
-
-    //para el return
-    const handleReturn = () => {
-
-        if( history.lenght <= 2 ){
-            history.push('/');
-        } else {
-            history.goBack();
-        }
-
-    }
-
+    const url = "/prod/encuesta/" + encuestaId;
+    const [encuesta, setEncuesta] = useState();
+    const fetchApi = async () => {
+        const response = await fetch(url);
+        const responseJSON = await response.json();
+        setEncuesta(responseJSON.Item);
+        console.log(responseJSON.Item)
+    };
+    useEffect(() => {
+        fetchApi()
+    }, []);
+    const history = useHistory();
     return (
-        <div className="fondo">
-            <Container>
-                <div>&nbsp;</div>
+        <Container>
+            <div>&nbsp;</div>
+            {
+                !encuesta ? "Cargando..." :
                 <Row>
                     <Col>
-                        <Card key = {id}>
-                            <Card.Body>
-                            <Card.Title>{titulo}</Card.Title>
-                            <Card.Text>{descripcion}</Card.Text>
-                            </Card.Body>
-                            <button
-                                className="btn btn-outline-info"
-                                onClick = { handleReturn }>
-                                Return
-                            </button>
-                        </Card>
-                        <div>&nbsp;</div>
+                      <Card key={encuesta.Id} bg={"Light"}>
+                        <Card.Header>Encuesta #{encuesta.Id}</Card.Header>
+                        <Card.Body>
+                          <Card.Title>{encuesta.Titulo}</Card.Title>
+                          <Card.Text>{encuesta.Descripcion}</Card.Text>
+                          <Link onClick={() => history.goBack()}>Volver</Link>
+                        </Card.Body>
+                      </Card>
+                      <div>&nbsp;</div>
                     </Col>
                 </Row>
-            </Container>
-            <>
-            
-            </>
-
-        </div>
-    )
+            }
+        </Container>
+    );
 }
+
+export default EncuestaScreen;

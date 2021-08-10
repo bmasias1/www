@@ -31,7 +31,6 @@ export default class Formularios extends React.Component {
     arrJson.push(obj);
     localStorage.setItem("encuestas", JSON.stringify(arrJson));
     alert("La encuesta se ha enviado");
-    window.location.href = window.location.href;
   }
 
   render(){
