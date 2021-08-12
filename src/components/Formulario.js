@@ -42,21 +42,19 @@ export default class Formularios extends React.Component {
             <Card bg={"Light"}>
               <Card.Header>Crear encuesta</Card.Header>
               <Card.Body>
-                <Card.Text>
                   <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                       <Form.Label>Título</Form.Label>
-                      <Form.Control name="nombre" value={this.state.nombre} onChange={this.onChange} />
+                      <Form.Control name="nombre" value={this.state.nombre} onChange={this.onChange}></Form.Control>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                       <Form.Label>Descripción</Form.Label>
-                      <Form.Control as="textarea" rows={4} name="descripcion" value={this.state.descripcion} onChange={this.onChange} />
+                      <Form.Control as="textarea" rows={4} name="descripcion" value={this.state.descripcion} onChange={this.onChange}></Form.Control>
                     </Form.Group>
                     <Form.Group className="text-center">
                       <Button variant="primary" onClick= {this.onClick}>Enviar</Button>
                     </Form.Group>
                   </Form>
-                </Card.Text>
               </Card.Body>
             </Card>
           </Col>

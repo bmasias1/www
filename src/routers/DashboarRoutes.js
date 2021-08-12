@@ -9,12 +9,12 @@ import EncuestaScreen from '../components/EncuestaScreen'
 export const DashboardRoutes = () => {
     return (
         <>
-            <Navbar />
+            <Navbar></Navbar>
             <Switch>
-                <Route exact path="/encuestas" component={ Encuesta } />
-                <Route exact path="/encuestas/:encuestaId" component={ EncuestaScreen } />
-                <Route exact path="/formulario" component={ Formulario } />
-                <Redirect to="/formulario" />    
+                <Route exact path="/encuestas" component={ Encuesta }></Route>
+                <Route exact path="/encuestas/:encuestaId" component={ EncuestaScreen }></Route>
+                <Route exact path="/formulario" component={ Formulario }></Route>
+                <Redirect to="/formulario"></Redirect>
             </Switch>
         </>
     )
