@@ -20,7 +20,7 @@ function Encuesta() {
         <Col>
           <Row>
           {
-            !listado ? "Cargando..." : 
+            !listado ? "Cargando..." :
             listado.map ( (listado, index) => {
               return (
                 <>
