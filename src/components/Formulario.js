@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Form, Card, Container, Row, Col, Button } from 'react-bootstrap'
 
 export default class Formularios extends React.Component {
@@ -21,26 +22,15 @@ export default class Formularios extends React.Component {
   }
 
   async onClick(e) {
-    // Falta arreglar lo siguiente...
-    /*
+    e.preventDefault();
     const data = {
       Titulo: this.state.nombre,
       Descripcion: this.state.descripcion
     }
-    const config = {
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    };
-    const response = await fetch("/prod/encuesta/", config);
-    const json = await response.json();
-    console.log(JSON.stringify(data));
-    console.log(json);
-    */
-    console.log("ok");
+    await axios.post("/prod/encuesta/", {body: data});
+    alert("¡Encuesta creada!");
+    this.setState({ nombre: "" });
+    this.setState({ descripcion: "" });
   }
 
   render(){
